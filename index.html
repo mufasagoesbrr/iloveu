@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Love You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffeef2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff6b81;
+      font-size: 3em;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .bouquet {
+      width: 200px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .hearts {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.imgur.com/5Y4v2vZ.png" alt="Bouquet" class="bouquet"/>
+  <h1>I love you!</h1>
+
+  <script>
+    // optional: floating hearts on click
+    document.addEventListener('click', (e) => {
+      const heart = document.createElement('div');
+      heart.textContent = '❤️';
+      heart.style.position = 'absolute';
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      heart.style.fontSize = '24px';
+      heart.style.animation = 'fly 2s ease forwards';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 2000);
+    });
+  </script>
+
+  <style>
+    @keyframes fly {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-100px); opacity: 0; }
+    }
+  </style>
+</body>
+</html>
